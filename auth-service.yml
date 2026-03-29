@@ -6,6 +6,10 @@ spring:
     url: jdbc:postgresql://postgres-auth:5432/authdb
     username: admin
     password: password
+    hikari:
+      initialization-fail-timeout: -1        # ← retry DB connection forever
+      connection-timeout: 20000
+      maximum-pool-size: 5
   jpa:
     hibernate:
       ddl-auto: update
